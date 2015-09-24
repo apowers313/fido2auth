@@ -10,36 +10,33 @@ io
     	socket.on ("deregister", authDeregister);
     });
 
-
 /**
  * Discovery
  */
-function authDiscover(socket) {
+function authDiscover(msg) {
     console.log("got connection");
 
     // Got discovery request
-    socket.on("discover", function (msg) {
-        console.log("got msg:", msg);
-    });
+    console.log("got msg:", msg);
 }
 
 /**
  * Register
  */
-function authRegister(socket) {
+function authRegister(msg) {
 
 }
 
 /**
  * Authenticate
  */
-function authAuthenticate(socket) {
+function authAuthenticate(msg) {
 	
 }
 
 /**
  * Deregister
  */
-function authDeregister(socket) {
+function authDeregister(msg) {
 	
 }
