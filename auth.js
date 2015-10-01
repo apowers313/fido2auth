@@ -30,6 +30,27 @@ function authenticatorDiscover(msg) {
     };
     var socket = _ioSocket;
     socket.emit ("discover", authenticatorDescription);
+    
+    // rpId
+    // account (AccountInfo)
+    // clientDataHash (Byte Array)
+    // cryptoParameters (sequence of FIDOCredentialParameters / AlgorithmIdentifier)
+    // [blacklist (Sequence of strings)]
+    // [extensions (FIDOExtensions)]
+
+    // 1. If the blacklist parameter is present and contains a credential ID that is present on this authenticator, terminate this procedure and return error code TDB.
+    // 2. If the cryptoParameters parameter does not contain a valid AlgorithmIdentifier structure that is supported by the authenticator, terminate this procedure and return error code TBD.
+    // 3. Optionally, if the extensions parameter is present, process any extensions that this authenticator supports.
+    // 4. If the authenticator has a display, show the contents of the account parameter to the user. Request permission to create a credential. If the user declines permission return an error code.
+    // 5. Generate a new cryptographic key pair for the algorithm specified.
+    // 6. Associate the rpId with the newly-created keypair.
+    // 7. Generate an attestation statement for the newly-created key using clientDataHash.
+
+    // Returns structure:
+    // credential (Credential)
+    // algorithm (Algorithm)
+    // publicKey (String / serialized JSON Web Key)
+    // attestationStatement (AttestationStatement)
 }
 
 /**
